@@ -10,7 +10,9 @@ func main() {
 		fmt.Println("2. Obter todos os usuários")
 		fmt.Println("3. Atualizar usuário")
 		fmt.Println("4. Deletar usuário")
-		fmt.Println("5. Sair")
+		fmt.Println("5. Buscar usuario por Id")
+		fmt.Println("6. Buscar usuario por email")
+		fmt.Println("7. Sair")
 
 		var opcao int
 		fmt.Println("- Escolha uma opção: ")
@@ -18,14 +20,18 @@ func main() {
 
 		switch opcao{
 		case 1:
-			cadastrarUsuario()
+			insertUser()
 		case 2:
-			obterUsuario()
+			getUser()
 		case 3:
-			atualizarUsuario()
+			updateUser()
 		case 4:
-			deletarUsuario()
+			deleteUser()
 		case 5:
+			getUserById()
+		case 6:
+			getUserbyEmail()
+		case 7:
 			fmt.Println("Saindo")
 			return
 		default:
