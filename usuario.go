@@ -2,19 +2,18 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 type usuario struct {
-	id int
-	nome string
-	cpf  string
+	id    int
+	nome  string
+	cpf   string
 	email string
 }
 
 var usuarios []usuario
 
-func insertUser(){
+func insertUser() {
 
 	novoId := len(usuarios)
 
@@ -36,20 +35,20 @@ func insertUser(){
 	fmt.Println("Usuario cadastrado com sucesso")
 }
 
-func getUser(){
+func getUser() {
 	fmt.Println("----------Todos os usuarios----------")
-	for _, u := range usuarios{
+	for _, u := range usuarios {
 		fmt.Printf("Id: %d\n, Nome: %s\n, Cpf: %s\n, Email: %s\n", u.id, u.nome, u.cpf, u.email)
 	}
 }
 
-func updateUser(){
+func updateUser() {
 	var idUser int
 	fmt.Println("Qual o id do usuario que deseja alterar?")
 	fmt.Scanln(&idUser)
 
-	for i, u := range usuarios{
-		if u.id == idUser{
+	for i, u := range usuarios {
+		if u.id == idUser {
 			var novoNome string
 			fmt.Println("Digite o nome: ")
 			fmt.Scanln(&novoNome)
@@ -65,8 +64,6 @@ func updateUser(){
 			usuarios[i].nome = novoNome
 			usuarios[i].cpf = novoCpf
 			usuarios[i].email = novoEmail
-
-			
 
 			fmt.Println("Usuário atualizado com sucesso!")
 			return
@@ -98,7 +95,7 @@ func deleteUser() {
 	}
 }
 
-func getUserById(){
+func getUserById() {
 
 	var idUser int
 	fmt.Println("Digite o id do usuario que deseja obter")
@@ -106,27 +103,23 @@ func getUserById(){
 
 	fmt.Println("----------Busca por Id----------")
 
-	for _, u := range usuarios{
-		if u.id == idUser{
+	for _, u := range usuarios {
+		if u.id == idUser {
 			fmt.Printf("Id: %d\n, Nome: %s\n, Cpf: %s\n, Email: %s\n", u.id, u.nome, u.cpf, u.email)
 		}
 	}
 }
 
-func getUserbyEmail(){
+func getUserbyEmail() {
 	var emailUser string
 	fmt.Println("Digite o email do usuario que deseja obter: ")
 	fmt.Scanln(&emailUser)
 
 	fmt.Println("----------Busca por Email----------")
 
-	
-
-	for _, u := range usuarios{
-		if strings.Compare(u.email, emailUser) == 0{
+	for _, u := range usuarios {
+		if u.email == emailUser{
 			fmt.Printf("Id: %d\n, Nome: %s\n, Cpf: %s\n, Email: %s\n", u.id, u.nome, u.cpf, u.email)
 		}
 	}
 }
-
-
